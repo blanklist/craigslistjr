@@ -2,7 +2,7 @@
 
 <div id=categories_index><% @categories.each do |category| %>
   <ul>
-  <li><a href="/categories/<%= category.id %>/articles"><%= category[:name] %></a></li>
+    <li><a href="/categories/<%= category.id %>/articles"><%= category[:name] %></a></li>
   </ul>
 <% end %>
 </div>
