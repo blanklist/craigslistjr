@@ -3,12 +3,14 @@ get '/users/new' do
 end
 
 post '/users' do
-  new_user = User.new(params[:user])
-  if new_user.save
-    redirect '/'
+
+  @user = User.new(params[:user])
+
+  if @user.save
+    session[:id] = @user.id
+    redirect "/categories"
   else
-    @errors = new_user.errors.full_messages
-    erb :'users/new'
+    @errors = @user.errors.full_messages
+    erb :'/users/new'
   end
-  redirect '/'
-end
+end    
