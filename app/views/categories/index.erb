@@ -1,0 +1,8 @@
+<h2 id=categories_title>Categories</h2>
+
+<div id=categories_index><% @categories.each do |category| %>
+  <ul>
+  <li><a href="/categories/<%= category.id %>/articles"><%= category[:name] %></a></li>
+  </ul>
+<% end %>
+</div>
