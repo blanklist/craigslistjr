@@ -1,0 +1,8 @@
+<h2>Detail page for <%= @article.title.capitalize! %> in the category <%= @category.name %> submitted by <%= @user %> </h2>
+
+<ul>
+  <li>Price: <%= @article.price %></li>
+  <li><%= @article.description %></li>
+</ul>
+
+<p>Back to <a href="/categories/:category_id/articles">Articles</a>

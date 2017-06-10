@@ -9,7 +9,9 @@ get '/categories/:category_id/articles' do
   erb :'articles/index'
 end
 
-# get '/categories/:category_id/articles/:id' do
-
-#   erb :'articles/show'
-# end
+get '/categories/:category_id/articles/:id' do
+  @category = Category.find(params[:category_id])
+  @article = Article.find(params[:id])
+  @user = @article.user.username
+  erb :'articles/show'
+end

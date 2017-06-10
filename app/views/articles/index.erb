@@ -2,11 +2,9 @@
 
 <div><% @articles.each do |article| %>
   <ul>
-    <li><%= "#{article[:title]} Price: #{article[:price]}" %></li>
-    <li><%= "#{article[:description]}"%></li>
+    <li><a href='/categories/<%= @category.id %>/articles/<%= article.id %>'><%= "#{article[:title]}" %></a> <%= "Price: #{article[:price]}" %></li>
   </ul>
   <% end %>
 </div>
-<!-- <p>Create a <a href="/categories/<%= @category.id %>/articles/new">new</a> posting!</p> -->
 
-<p>Back to <a href="/categories">Categories</a>
+<p>Create a <a href="/categories/<%= @category.id %>/articles/new">new</a> posting!</p>
