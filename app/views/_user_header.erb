@@ -1,9 +1,8 @@
 <header>
 <% if logged_in? %>
-  <a id=register_link href="<%= current_user.id %>">Logout</a>
   <form action='/sessions' method='post'>
     <input type='hidden' name='_method' value='delete'>
-    <input type='submit'>
+    <input type='submit' value='Logout'>
   </form>
 <% else %>
   <a id=login_link href='/sessions/new'>Login</a> 

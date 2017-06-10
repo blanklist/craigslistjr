@@ -20,6 +20,10 @@
 <body>
   <%= erb :'/_user_header', layout: false %>
   <h1 id=brand>Craigslist Jr.</h1>
+  <% if logged_in? %>
+    <p>Hello, <%= current_user.username.capitalize! %></p>
+  <% end %>
+  <%= erb :'/_errors', layout: false %>
   <%= yield %>
 </body>
 </html>

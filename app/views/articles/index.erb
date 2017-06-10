@@ -1,0 +1,12 @@
+<h2>Articles from <%= @category.name %></h2>
+
+<div><% @articles.each do |article| %>
+  <ul>
+    <li><%= "#{article[:title]} Price: #{article[:price]}" %></li>
+    <li><%= "#{article[:description]}"%></li>
+  </ul>
+  <% end %>
+</div>
+<!-- <p>Create a <a href="/categories/<%= @category.id %>/articles/new">new</a> posting!</p> -->
+
+<p>Back to <a href="/categories">Categories</a>
