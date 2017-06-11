@@ -2,7 +2,7 @@
 <% if logged_in? %>
   <form action='/sessions' method='post'>
     <input type='hidden' name='_method' value='delete'>
-    <input type='submit' value='Logout'>
+    <input class=button type='submit' value='Logout'>
   </form>
 <% else %>
   <a id=login_link href='/sessions/new'>Login</a> 
