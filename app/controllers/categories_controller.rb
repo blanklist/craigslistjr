@@ -46,9 +46,27 @@ get '/categories/:category_id/articles/:id/edit' do
   erb :'articles/edit'
 end
 
-patch '/categories/:category_id/articles/:id' do
+def edit_article
   @category = Category.find(params[:category_id])
   @article = Article.find(params[:id])
   @article.update(params[:article])
   redirect "/categories/#{@category.id}/articles/#{@article.id}"
+end
+
+patch '/categories/:category_id/articles/:id' do
+  edit_article
+end
+
+put '/categories/:category_id/articles/:id' do
+  edit_article
+end
+
+#DELETE
+delete '/categories/:category_id/articles/:id' do
+  p "made it to delete controller"
+  @category = Category.find(params[:category_id])
+  @article = @category.articles.find(params[:id])
+  p @article
+  @article.destroy
+  redirect "/categories/#{@category.id}/articles"
 end
