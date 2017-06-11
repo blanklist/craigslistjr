@@ -7,4 +7,6 @@
   <% end %>
 </div>
 
-<p>Create a <a href="/categories/<%= @category.id %>/articles/new">new</a> posting!</p>
+<% if logged_in? %>
+  <p>Create a <a href="/categories/<%= @category.id %>/articles/new">new</a> posting!</p>
+<% end %>

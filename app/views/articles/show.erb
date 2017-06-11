@@ -1,8 +1,13 @@
-<h2>Detail page for <%= @article.title.capitalize! %> in the category <%= @category.name %> submitted by <%= @user %> </h2>
+<h2>Detail page for <%= @article.title.capitalize! %> in the category <%= @category.name %> submitted by <%= @user.capitalize! %> </h2>
 
 <ul>
   <li>Price: <%= @article.price %></li>
   <li><%= @article.description %></li>
 </ul>
+
+<% if current_user.username.capitalize! == @user %>
+  <p><%= current_user.username %>, click <a href='/categories/<%= @category.id %>/articles/<%= @article.id %>/edit'>here</a> to edit this post.</p>
+<% end %>
+
 
 <p>Back to <a href="/categories/<%= @category.id %>/articles">Articles</a>

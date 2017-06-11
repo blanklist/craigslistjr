@@ -39,3 +39,16 @@ get '/categories/:category_id/articles/:id' do
   erb :'articles/show'
 end
 
+#Edit
+get '/categories/:category_id/articles/:id/edit' do
+  @category = Category.find(params[:category_id])
+  @article = Article.find(params[:id])
+  erb :'articles/edit'
+end
+
+patch '/categories/:category_id/articles/:id' do
+  @category = Category.find(params[:category_id])
+  @article = Article.find(params[:id])
+  @article.update(params[:article])
+  redirect "/categories/#{@category.id}/articles/#{@article.id}"
+end
