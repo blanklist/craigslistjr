@@ -63,10 +63,8 @@ end
 
 #DELETE
 delete '/categories/:category_id/articles/:id' do
-  p "made it to delete controller"
   @category = Category.find(params[:category_id])
   @article = @category.articles.find(params[:id])
-  p @article
   @article.destroy
   redirect "/categories/#{@category.id}/articles"
 end
