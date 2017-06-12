@@ -6,21 +6,21 @@ end
 
 #Index - Article
 get '/categories/:category_id/articles' do
-  @category = Category.find(params[:category_id])
+  category
   @articles = @category.articles
   erb :'articles/index'
 end
 
 #New
 get '/categories/:category_id/articles/new' do
-  @category = Category.find(params[:category_id])
+  category
   erb :'articles/new'
 end
 
 #Create
 post '/categories/:category_id/articles' do
   p params
-  @category = Category.find(params[:category_id])
+  category
   @article = Article.new(params[:article])
   if @article.save!
     redirect "/categories/#{@category.id}/articles"
@@ -33,22 +33,22 @@ end
 
 #Show
 get '/categories/:category_id/articles/:id' do
-  @category = Category.find(params[:category_id])
-  @article = Article.find(params[:id])
+  category
+  article
   @user = @article.user.username
   erb :'articles/show'
 end
 
 #Edit
 get '/categories/:category_id/articles/:id/edit' do
-  @category = Category.find(params[:category_id])
-  @article = Article.find(params[:id])
+  category
+  article
   erb :'articles/edit'
 end
 
 def edit_article
-  @category = Category.find(params[:category_id])
-  @article = Article.find(params[:id])
+  category
+  article
   @article.update(params[:article])
   redirect "/categories/#{@category.id}/articles/#{@article.id}"
 end
@@ -63,7 +63,7 @@ end
 
 #DELETE
 delete '/categories/:category_id/articles/:id' do
-  @category = Category.find(params[:category_id])
+  category
   @article = @category.articles.find(params[:id])
   @article.destroy
   redirect "/categories/#{@category.id}/articles"
